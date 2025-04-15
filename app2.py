@@ -27,7 +27,7 @@ df["분류코드"] = df["분류"]
 df = df.merge(efficacy_df, on="분류코드", how="left")
 
 # --- 필터 UI ---
-st.title("💊 성분별 약가 검색")
+st.title("💊 약가 검색 - 투여경로/제형/분류")
 st.sidebar.header("🔍 필터 선택")
 
 # 투여경로 필터
