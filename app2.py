@@ -183,7 +183,7 @@ result_df = filtered_df[selected_columns]
 # --- 검색 요약 통계 ---
 st.subheader("📈 검색 요약")
 # st.write(f"총 품목 수: {len(result_df):,}개")
-st.write(f"총 품목 수: {result_df[['주성분코드', '제품코드']].drop_duplicates().shape[0]:,}개")
+# st.write(f"총 품목 수: {result_df[['주성분코드', '제품코드']].drop_duplicates().shape[0]:,}개")
 st.write(f"총 성분 수: {result_df['주성분코드'].nunique():,}개")
 
 # 상한금액 관련 통계 처리 (비어 있거나 숫자 아닌 경우 대비)
