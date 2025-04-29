@@ -28,6 +28,8 @@ df = df.merge(efficacy_df, on="분류코드", how="left")
 
 # --- 필터 UI ---
 st.title("💊 약가 검색 - 투여경로/제형/분류")
+st.markdown("[👉 AI Pharma 네이버 카페 바로가기](https://cafe.naver.com/aipharma)")
+
 st.sidebar.header("🔍 필터 선택")
 
 # 투여경로 필터
