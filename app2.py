@@ -210,4 +210,5 @@ st.download_button(
     mime="text/csv"
 )
 
+
 st.markdown("[👉 AI Pharma 네이버 카페 바로가기](https://cafe.naver.com/aipharma)")
