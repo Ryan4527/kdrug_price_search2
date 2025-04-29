@@ -85,3 +85,7 @@ st.download_button(
     file_name="성분_약가_검색결과.csv",
     mime="text/csv"
 )
+
+# https://cafe.naver.com/aipharma
+st.markdown("[👉 AI Pharma 네이버 카페 바로가기](https://cafe.naver.com/aipharma)")
+# st.subheader("[👉 AI Pharma 네이버 카페 바로가기](https://cafe.naver.com/aipharma)")
