@@ -101,7 +101,7 @@ st.set_page_config(page_title="성분별 약가 검색 필터", layout="wide")
 # 데이터 로딩
 @st.cache_data
 def load_data():
-    return pd.read_excel("약가.xlsx")
+    return pd.read_excel("약가1.xlsx")
 
 df = load_data()
 
