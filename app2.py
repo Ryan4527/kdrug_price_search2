@@ -180,6 +180,7 @@ selected_columns = [
 ]
 result_df = filtered_df[selected_columns]
 
+
 # --- 검색 요약 통계 ---
 st.subheader("📈 검색 요약")
 # st.write(f"총 품목 수: {len(result_df):,}개")
