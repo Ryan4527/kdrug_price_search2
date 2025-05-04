@@ -217,6 +217,8 @@
 
 import streamlit as st
 import pandas as pd
+import io
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 st.set_page_config(page_title="성분별 약가 검색 필터", layout="wide")
 
@@ -339,13 +341,30 @@ if search_clicked:
             st.error(f"상한금액 통계 계산 중 오류 발생: {e}")
 
     st.subheader("📋 검색 결과")
-    st.dataframe(result_df, use_container_width=True)
+
+    gb = GridOptionsBuilder.from_dataframe(result_df)
+    grid_options = gb.build()
+
+    AgGrid(
+        result_df,
+        gridOptions=grid_options,
+        allow_unsafe_jscode=False,
+        enable_enterprise_modules=False,
+        reload_data=True,
+        fit_columns_on_grid_load=True
+    )
+    # st.dataframe(result_df, use_container_width=True)
+
+    # XLSX 다운로드로 변경
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        result_df.to_excel(writer, index=False, sheet_name='검색결과')
 
     st.download_button(
-        label="📥 결과 다운로드 (CSV)",
-        data=result_df.to_csv(index=False, encoding="utf-8-sig"),
-        file_name="성분_약가_검색결과.csv",
-        mime="text/csv"
+        label="📥 결과 다운로드 (Excel)",
+        data=output.getvalue(),
+        file_name="성분_약가_검색결과.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 else:
     st.info("왼쪽에서 필터를 선택하고 '검색' 버튼을 눌러주세요.")
