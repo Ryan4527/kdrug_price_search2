@@ -4,3 +4,5 @@ pandas
 numpy
 datetime
 openpyxl
+xlsxwriter
+streamlit-aggrid
